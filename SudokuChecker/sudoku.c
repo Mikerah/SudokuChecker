@@ -55,20 +55,18 @@ bool is_solved(int n, int gridArray[n][n]) {
 
     //Check subsquares
     int m = sqrt(n);
-    int content_of_subsquare[n];
-    for(int i=0; i< n; i+=m) {
-        for(int j=0; j<n; j+=m) {
-            for(int x=i; x<m; x++) {
-                for(int y=j; y<m; y++) {
-                    content_of_subsquare[x] = gridArray[x][y];
-                }
-                if(check_for_duplicates(content_of_subsquare,n)) {
-                    return false;
+    for(int i=0; i<n; i += m){
+        for(int j=0; j<n; j += m) {
+            for(int x=i; x< i+m; x++) {
+                for(int y=j; y<j+m;y++){
+                    if(x != i && y != j && gridArray[x][y] == gridArray[i][j]){
+                        return false;
+                    }
                 }
             }
+
         }
     }
-    free(content_of_subsquare);
 
     return true;
 }
