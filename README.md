@@ -1,2 +1,2 @@
 # SudokuChecker
-Checks if a sudoku puzzles has been solved
+This repository contains code that checks to see if a sudoku puzzle has been solved.
