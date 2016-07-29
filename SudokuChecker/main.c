@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "sudoku.h"
 
 int main(int argc, char *argv)
@@ -10,7 +11,7 @@ int main(int argc, char *argv)
         n = 9;
     }
     else if(argc == 2) {
-        n = *argv;
+        n = argv[1] - '0';
     }
     FILE * fp = fopen("sudoku_1.txt","r");
 
@@ -22,8 +23,8 @@ int main(int argc, char *argv)
             grid[i][j] = atoi(s);
         }
     }
-
-    printf("Verdict: %s", is_solved(grid, n));
+    bool verdict = is_solved(n, grid);
+    printf("Verdict: %d", verdict);
 
     /*
     for(int i=0; i<n; i++){
