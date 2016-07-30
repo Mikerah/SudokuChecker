@@ -20,6 +20,16 @@ bool check_for_duplicates(int grid[], int n) {
 
 }
 
+bool has_zeros(int grid[], int n) {
+    int zero = 0;
+    for(int i=0; i<n, i++){
+        if(grid[i] == zero) {
+            true;
+        }
+    }
+    return false;
+}
+
 bool is_solved(int n, int gridArray[n][n]) {
     /* Determines of sudoku puzzle has been solved
      * Returns true if it has and false otherwise
@@ -36,6 +46,9 @@ bool is_solved(int n, int gridArray[n][n]) {
         if (has_duplicates) {
             return false;
         }
+        else if (has_zeros(content_of_rows,n)) {
+            return false
+        }
 
     }
 
@@ -51,6 +64,9 @@ bool is_solved(int n, int gridArray[n][n]) {
         if (has_duplicates) {
             return false;
         }
+        else if (has_zeros(content_of_columns,n)) {
+            return false
+        }
     }
 
     //Check subsquares
@@ -60,6 +76,9 @@ bool is_solved(int n, int gridArray[n][n]) {
             for(int x=i; x< i+m; x++) {
                 for(int y=j; y<j+m;y++){
                     if(x != i && y != j && gridArray[x][y] == gridArray[i][j]){
+                        return false;
+                    }
+                    else if (gridArray[x][y] == 0) {
                         return false;
                     }
                 }
