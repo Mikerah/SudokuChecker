@@ -22,7 +22,7 @@ bool check_for_duplicates(int grid[], int n) {
 
 bool has_zeros(int grid[], int n) {
     int zero = 0;
-    for(int i=0; i<n, i++){
+    for(int i=0; i<n; i++){
         if(grid[i] == zero) {
             true;
         }
@@ -47,7 +47,7 @@ bool is_solved(int n, int gridArray[n][n]) {
             return false;
         }
         else if (has_zeros(content_of_rows,n)) {
-            return false
+            return false;
         }
 
     }
@@ -57,7 +57,7 @@ bool is_solved(int n, int gridArray[n][n]) {
         int content_of_columns[n];
 
         for(int j=0; j<n;j++) {
-            content_of_columns[i] = gridArray[j][i];
+            content_of_columns[j] = gridArray[j][i];
         }
 
         bool has_duplicates = check_for_duplicates(content_of_columns, n);
@@ -65,7 +65,7 @@ bool is_solved(int n, int gridArray[n][n]) {
             return false;
         }
         else if (has_zeros(content_of_columns,n)) {
-            return false
+            return false;
         }
     }
 
